@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://0.0.0.0/db_flowery', {
+mongoose.connect('mongodb://34.101.67.25/db_flowery', {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 })
