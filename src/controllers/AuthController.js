@@ -16,7 +16,14 @@ const loginHandler = async (req, h) => {
 
         await userRepository.setCache(user);
 
-        return h.response({ token }).code(200);
+        return h.response({
+            error: false,
+            message: "success",
+            result: {
+                user: user,
+                token: token
+            }
+        }).code(200);
     } catch (e) {
         switch (e.message) {
         case ERR_INVALID_PASSWORD:
@@ -39,7 +46,10 @@ const logoutHandler = async (req, h) => {
             userRepository.removeCache(credentials.data.user_id),
         ]);
 
-        return h.response({message: "You just logged out the app"}).code(200);
+        return h.response({
+            error: false,
+            message: "You just logged out the app"
+        }).code(200);
     } catch (e) {
         console.error(e);
         throw boom.badImplementation();
