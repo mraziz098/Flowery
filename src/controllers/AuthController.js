@@ -17,12 +17,9 @@ const loginHandler = async (req, h) => {
         await userRepository.setCache(user);
 
         return h.response({
-            error: false,
-            message: "success",
-            result: {
-                user: user,
-                token: token
-            }
+            user_id: user._id,
+            user_name: user.name,
+            token: token
         }).code(200);
     } catch (e) {
         switch (e.message) {
