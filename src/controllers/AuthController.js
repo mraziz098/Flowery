@@ -17,9 +17,13 @@ const loginHandler = async (req, h) => {
         await userRepository.setCache(user);
 
         return h.response({
-            user_id: user._id,
-            user_name: user.name,
-            token: token
+            error: false,
+            message: "Success Logged In",
+            result: {
+                user_id: user._id,
+                user_name: user.name,
+                token: token
+            }
         }).code(200);
     } catch (e) {
         switch (e.message) {
