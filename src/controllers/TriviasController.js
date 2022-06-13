@@ -81,7 +81,7 @@ const deleteTriviaByIdHandler = async (request, h) => {
     }).code(500);
   }
 }
-
+//
 module.exports = {
   addTriviaHandler,
   getAllTriviasHandler,
